@@ -1,0 +1,10 @@
+select names from customers table
+then left join orders table to match the data
+then find the customersId that arent is the table 
+
+SQL query: 
+# Write your MySQL query statement below
+SELECT name as Customers 
+from Customers  ct
+left join Orders od on ct.id = od.customerId 
+where od.customerId is null
