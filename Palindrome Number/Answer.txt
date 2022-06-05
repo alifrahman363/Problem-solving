@@ -1,0 +1,43 @@
+Get the last digit: 
+if we mod a number we get the last digit of the number
+
+Get the first digit: 
+and if we integer divide a 2 digit number by 10 we get the first digit of that number 
+again if we integer divide a 3 digit number by 100 we get the first digit of that number 
+
+
+we match the first and last number 
+
+then shorten the number by removing the first and last digit and do the steps above again.
+
+to shorten the number we take a variable DIVIDE of value 1 . 
+then multiply by 10 times or if it has 2 digits or more.
+
+then mod the number and divide it by 10 
+
+then divide the variable DIVIDE by 100
+
+if matched then return true . else false .. 
+
+
+
+Answer: 
+class Solution:
+    def isPalindrome(self, x:int) -> bool:
+        if x < 0: return False 
+        
+        div = 1
+        while x >= div * 10 : 
+            div = div * 10
+        
+        while x: 
+            right = x % 10
+            left = x // div
+            
+            if left != right: return False 
+            
+            x = (x % div) // 10 
+            div = div / 100
+            
+        return True
+    
